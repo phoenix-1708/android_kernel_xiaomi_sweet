@@ -2,7 +2,7 @@
 echo "Cloning dependencies"
 git clone --depth=1  https://github.com/phoenix-1708/android_kernel_xiaomi_sweet.git -b arrow-11.0
 cd android_kernel_xiaomi_sweet
-git clone --depth=1 -b master https://github.com/kdrag0n/proton-clang clang
+git clone --depth=1 https://android.googlesource.com/toolchain/llvm-project clang
 git clone https://github.com/phoenix-1708/Anykernel3-Tissot.git  --depth=1 AnyKernel
 git clone https://github.com/fabianonline/telegram.sh.git  -b master
 KERNEL_DIR=$(pwd)
