@@ -3,8 +3,8 @@ echo "Cloning dependencies"
 git clone --depth=1  https://github.com/phoenix-1708/android_kernel_xiaomi_sweet.git -b arrow-11.0
 cd android_kernel_xiaomi_sweet
 git clone --depth=1 https://github.com/llvm/llvm-project clang
-git clone https://github.com/phoenix-1708/Anykernel3-Tissot.git  --depth=1 AnyKernel
-git clone https://github.com/fabianonline/telegram.sh.git  -b master
+git clone https://github.com/phoenix-1708/Anykernel3-Tissot.git --depth=1 AnyKernel
+git clone https://github.com/fabianonline/telegram.sh.git -b master
 KERNEL_DIR=$(pwd)
 REPACK_DIR="${KERNEL_DIR}/AnyKernel"
 IMAGE="${KERNEL_DIR}/out/arch/arm64/boot/Image.gz"
@@ -18,12 +18,12 @@ export KBUILD_BUILD_USER=phoenix-1708
 export KBUILD_BUILD_HOST=circleci
 # Compile plox
 function compile() {
-    make -j$(nproc) O=out ARCH=arm64 sweet_user_defconfig
-    make -j$(nproc) O=out \
-                    ARCH=arm64 \
-                      CC=clang \
-                      CROSS_COMPILE=aarch64-linux-gnu- \
-                      CROSS_COMPILE_ARM32=arm-linux-gnueabi- \
+    make -j$(nproc --all) O=out ARCH=arm64 sweet_user_defconfig
+    make -j$(nproc --all) O=out \
+                          ARCH=arm64 \
+                          CC=clang \
+                          CROSS_COMPILE=aarch64-linux-gnu- \
+                          CROSS_COMPILE_ARM32=arm-linux-gnueabi- \
 
     cd $REPACK_DIR
     mkdir kernel
