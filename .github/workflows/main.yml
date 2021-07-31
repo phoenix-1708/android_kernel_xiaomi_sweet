@@ -37,8 +37,6 @@ jobs:
           git config --global user.email "harikumar1708@gmail.com"
           git config --global color.ui true
           git clone https://github.com/akhilnarang/scripts && cd scripts && bash setup/android_build_env.sh && cd ..
-          mkdir phoenix
-          cd phoenix
           wget https://raw.githubusercontent.com/phoenix-1708/android_kernel_xiaomi_sweet/arrow-11.0/.circleci/build.sh
           source build.sh
  
