@@ -2,7 +2,7 @@
 echo "Cloning dependencies"
 git clone --depth=1  https://github.com/phoenix-1708/android_kernel_xiaomi_sweet.git -b arrow-11.0
 cd android_kernel_xiaomi_sweet
-git clone --depth=1 https://github.com/kdrag0n/proton-clang.git clang
+# git clone --depth=1 https://github.com/kdrag0n/proton-clang.git clang
 git clone https://github.com/phoenix-1708/Anykernel3-Tissot.git --depth=1 AnyKernel
 git clone https://github.com/fabianonline/telegram.sh.git -b master
 KERNEL_DIR=$(pwd)
@@ -13,7 +13,7 @@ DTB="${KERNEL_DIR}/out/arch/arm64/boot/dts/qcom/msm8953-qrd-sku3-tissot-nontrebl
 SEND_DIR="${KERNEL_DIR}/telegram.sh"
 BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 # export PATH="$(pwd)/clang/bin:$PATH"
-export PATH="$HOME/toolchains/proton-clang/bin:$PATH"
+# export PATH="$HOME/toolchains/proton-clang/bin:$PATH"
 export ARCH=arm64
 export KBUILD_BUILD_USER=phoenix-1708
 export KBUILD_BUILD_HOST=circleci
@@ -22,7 +22,7 @@ function compile() {
     make -j$(nproc) O=out ARCH=arm64 sweet_user_defconfig
     make -j$(nproc) O=out \
                     ARCH=arm64 \
-                    CC=clang \
+                    # CC=clang \
                     CROSS_COMPILE=aarch64-linux-gnu- \
                     CROSS_COMPILE_ARM32=arm-linux-gnueabi- \
 
