@@ -2,7 +2,7 @@
 echo "Cloning dependencies"
 git clone --depth=1  https://github.com/phoenix-1708/android_kernel_xiaomi_sweet.git -b arrow-11.0
 cd android_kernel_xiaomi_sweet
-# git clone --depth=1 https://github.com/kdrag0n/proton-clang.git clang
+git clone --depth=1 https://github.com/kdrag0n/proton-clang.git clang
 git clone https://github.com/phoenix-1708/Anykernel3-Tissot.git --depth=1 AnyKernel
 git clone https://github.com/fabianonline/telegram.sh.git -b master
 KERNEL_DIR=$(pwd)
@@ -12,7 +12,7 @@ DTB_T="${KERNEL_DIR}/out/arch/arm64/boot/dts/qcom/msm8953-qrd-sku3-tissot-treble
 DTB="${KERNEL_DIR}/out/arch/arm64/boot/dts/qcom/msm8953-qrd-sku3-tissot-nontreble.dtb"
 SEND_DIR="${KERNEL_DIR}/telegram.sh"
 BRANCH="$(git rev-parse --abbrev-ref HEAD)"
-# export PATH="$(pwd)/clang/bin:$PATH"
+export PATH="$(pwd)/clang/bin:$PATH"
 # export PATH="$HOME/toolchains/proton-clang/bin:$PATH"
 export ARCH=arm64
 export KBUILD_BUILD_USER=phoenix-1708
