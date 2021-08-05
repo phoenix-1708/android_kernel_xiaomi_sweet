@@ -24,10 +24,10 @@ cd android_kernel_xiaomi_sweet
 # git clone --depth=1 https://github.com/xyz-prjkt/xRageTC-clang.git clang
 # git clone --depth=1 https://github.com/Haseo97/Avalon-Clang-12.0.0.git clang
 # git clone https://github.com/phoenix-1708/Anykernel3-Tissot.git  --depth=1 AnyKernel
-# git clone https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86
-git clone --depth=1 https://github.com/kdrag0n/proton-clang.git clang
-git clone https://github.com/stormbreaker-project/aarch64-linux-android-4.9.git aarch64-linux-android-4.9
-git clone https://github.com/stormbreaker-project/arm-linux-androideabi-4.9.git arm-linux-androideabi-4.9
+git clone --depth=1 https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86 clang
+# git clone --depth=1 https://github.com/kdrag0n/proton-clang.git clang
+git clone --depth=1 https://github.com/theradcolor/aarch64-linux-gnu aarch64-linux-android-4.9
+git clone --depth=1 https://github.com/theradcolor/arm-linux-gnueabi arm-linux-androideabi-4.9
 git clone https://github.com/fabianonline/telegram.sh.git  -b master
 KERNEL_DIR=/home/runner/work/sweet_kernel/phoenix/android_kernel_xiaomi_sweet
 REPACK_DIR="${KERNEL_DIR}/AnyKernel"
@@ -48,6 +48,6 @@ make -j$(nproc --all) O=out \
                       ARCH=arm64 \
                       CC=clang \
                       CLANG_TRIPLE=aarch64-linux-gnu- \
-                      CROSS_COMPILE=aarch64-linux-android- \
-                      CROSS_COMPILE_ARM32=arm-linux-androideabi- \
+                      CROSS_COMPILE=aarch64-linux-gnu- \
+                      CROSS_COMPILE_ARM32=arm-linux-gnueabi- \
                           
