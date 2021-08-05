@@ -13,8 +13,10 @@ jobs:
            git clone https://github.com/phoenix-1708/scripts && cd scripts && bash setup/android_build_env.sh && cd ..
            mkdir phoenix
            cd phoenix
-           wget https://raw.githubusercontent.com/phoenix-1708/android_kernel_xiaomi_sweet/arrow-11.0/.circleci/build.sh
-           source build.sh
+           wget https://raw.githubusercontent.com/phoenix-1708/android_kernel_xiaomi_sweet/arrow-11.0/.circleci/build1.sh
+           source build1.sh
+           wget https://raw.githubusercontent.com/phoenix-1708/android_kernel_xiaomi_sweet/arrow-11.0/.circleci/zip.sh
+           source zip.sh
 workflows:
   version: 2.1
   cooking:
