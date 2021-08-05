@@ -28,12 +28,12 @@ cd android_kernel_xiaomi_sweet
 git clone --depth=1 https://github.com/kdrag0n/proton-clang.git clang
 git clone --depth=1 https://github.com/theradcolor/clang.git aarch64-linux-android
 git clone https://github.com/fabianonline/telegram.sh.git  -b master
-KERNEL_DIR=/home/runner/work/sweet_kernel/phoenix/android_kernel_xiaomi_sweet
+KERNEL_DIR=$(pwd)
 REPACK_DIR="${KERNEL_DIR}/AnyKernel"
 IMAGE="${KERNEL_DIR}/out/arch/arm64/boot/Image.gz"
 SEND_DIR="${KERNEL_DIR}/telegram.sh"
 BRANCH="$(git rev-parse --abbrev-ref HEAD)"
-export PATH="/home/runner/work/sweet_kernel/phoenix/android_kernel_xiaomi_sweet/clang/bin:/home/runner/work/sweet_kernel/phoenix/android_kernel_xiaomi_sweet/aarch64-linux-android/bin:/home/runner/work/sweet_kernel/phoenix/android_kernel_xiaomi_sweet/aarch-linux-android/bin:$PATH"
+export PATH="$(pwd)/clang/bin:$(pwd)/aarch64-linux-android/bin:$(pwd)/aarch-linux-android/bin:$PATH"
 export ARCH=arm64
 export KBUILD_BUILD_USER=phoenix-1708
 export KBUILD_BUILD_HOST=ubuntu
